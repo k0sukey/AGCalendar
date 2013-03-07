@@ -23,6 +23,12 @@
         g = [Globals sharedDataManager];
         calendar = [[KalViewController alloc] init];
         dataSource = [g.dbSource isEqualToString:@"coredata"] ? [[SQLDataSource alloc] init] : [[EventKitDataSource alloc] init];
+        if (width == 0.0f || height == 0.0f) {
+            CGRect windowsRect = [[UIScreen mainScreen] applicationFrame];
+            width = windowsRect.size.width;
+            height = windowsRect.size.height;
+        }
+        calendar.contentSizeForViewInPopover = CGSizeMake(width, height);
         calendar.dataSource = dataSource;
         calendar.delegate = self;
         [self addSubview:calendar.view];

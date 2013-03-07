@@ -268,11 +268,11 @@ static BOOL IsDateBetweenInclusive(NSDate *date, NSDate *begin, NSDate *end)
     return eventList;
 }
 
--(void)removeEvent:(NSString *)identifier
+-(BOOL)removeEvent:(NSString *)identifier
 {
     EKEvent *event = [eventStore eventWithIdentifier:identifier];
     NSError *error = nil;
-    [eventStore removeEvent:event span: EKSpanFutureEvents error:&error];
+    return [eventStore removeEvent:event span: EKSpanFutureEvents error:&error];
     //[items removeObject:event];
 }
 

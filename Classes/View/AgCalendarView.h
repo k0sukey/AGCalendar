@@ -18,6 +18,9 @@
 {
     Globals *g;
     id dataSource;
+    
+    CGFloat width;
+    CGFloat height;
 @private
     KalViewController *calendar;
 }
